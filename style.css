@@ -14,3 +14,8 @@
   height: 200px;
   object-fit: cover;
 }
+
+.admin_image {
+  width: 100px;
+  object-fit: contain;
+}
