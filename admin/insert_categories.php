@@ -1,5 +1,27 @@
 <?php require '../config/config.php'; ?>
 
+<?php
+
+if (isset($_POST['insert_cat'])) {
+
+    if (isset($_POST['cat_title']) == '') {
+        echo "<script>alert('Please fill all the fields')</script>";
+    } else {
+        $category_title = $_POST['cat_title'];
+
+        $insert_query = $conn->prepare("INSERT INTO categories (category_title) values(:category_title)");
+
+        $insert_query->execute([
+            ':category_title' => $category_title
+        ]);
+
+        if ($insert_query) {
+            echo "<script>alert('Category has been added!')</script>";
+            echo "<script>window.location.href = '../index.php';</script>";
+        }
+    }
+}
+?>
 
 <form action="" method="post" class="mb-2">
     <div class="input-group w-90 mb-2">
@@ -8,8 +30,8 @@
             aria-describedby="basic-addon1">
     </div>
     <div class="input-group w-10 mb-2 m-auto">
-        <!-- <input type="submit" class="form-control bg-info" name="insert_cat" value="Insert Categories"> -->
-        <button class="bg-info p-2 my-3 mb-3 border-0">Insert Category</button>
+        <input type="submit" name="insert_cat" class="bg-info border-0 p-2 my-3" value="Insert Categories">
+
     </div>
 
 </form>
