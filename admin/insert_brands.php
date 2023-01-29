@@ -1,12 +1,54 @@
+<?php require '../config/config.php'; ?>
+
+<?php
+
+if (isset($_POST['insert_brand'])) {
+
+
+    if (isset($_POST['cat_title']) == '') {
+        echo "<script>alert('Please fill all the fields')</script>";
+    } else {
+
+        $brand_title = $_POST['cat_title'];
+
+
+        $select_query = $conn->prepare("SELECT * FROM brands WHERE brand_title = :brand_title ");
+        $select_query->bindParam(':brand_title', $brand_title);
+        $select_query->execute();
+        // $res = $select_query->fetch(PDO::FETCH_ASSOC);
+
+
+        if ($select_query->rowCount() > 0) {
+            echo "<script>alert('This brand already exists')</script>";
+            echo "<script>window.location.href = 'index.php';</script>";
+        } else {
+
+
+            $insert_query = $conn->prepare("INSERT INTO categories (brand_title) values(:brand_title)");
+
+            $insert_query->execute([
+                ':brand_title' => $brand_title
+            ]);
+
+            if ($insert_query) {
+                echo "<script>alert('Brand name has been added!')</script>";
+                echo "<script>window.location.href = '../index.php';</script>";
+            }
+        }
+    }
+}
+?>
+
 <form action="" method="post" class="mb-2">
     <div class="input-group w-90 mb-2">
         <span class="input-group-text bg-info" id="basic-addon1"><i class="fa-solid fa-receipt"></i></span>
         <input type="text" class="form-control" name="cat_title" placeholder="Insert Categories" aria-label="Username"
             aria-describedby="basic-addon1">
     </div>
+
     <div class="input-group w-10 mb-2 m-auto">
-        <!-- <input type="submit" class="form-control bg-info" name="insert_cat" value="Insert Categories"> -->
-        <button class="bg-info p-2 my-3 mb-3 border-0">Insert Brand</button>
+        <input type="submit" name="insert_brand" class="bg-info border-0 p-2 my-3" value="Insert Brands">
+
     </div>
 
 </form>
