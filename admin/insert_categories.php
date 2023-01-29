@@ -4,20 +4,40 @@
 
 if (isset($_POST['insert_cat'])) {
 
+
     if (isset($_POST['cat_title']) == '') {
         echo "<script>alert('Please fill all the fields')</script>";
     } else {
+
         $category_title = $_POST['cat_title'];
 
-        $insert_query = $conn->prepare("INSERT INTO categories (category_title) values(:category_title)");
+        // $email = $_POST['email'];
+        // $stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email");
+        // $stmt->bindParam(':email', $email);
+        // $stmt->execute();
 
-        $insert_query->execute([
-            ':category_title' => $category_title
-        ]);
+        $select_query = $conn->prepare("SELECT * FROM categories WHERE category_title = :category_title ");
+        $select_query->bindParam(':category_title', $category_title);
+        $select_query->execute();
+        // $res = $select_query->fetch(PDO::FETCH_ASSOC);
 
-        if ($insert_query) {
-            echo "<script>alert('Category has been added!')</script>";
-            echo "<script>window.location.href = '../index.php';</script>";
+
+        if ($select_query->rowCount() > 0) {
+            echo "<script>alert('This category already exists')</script>";
+            echo "<script>window.location.href = 'index.php';</script>";
+        } else {
+
+
+            $insert_query = $conn->prepare("INSERT INTO categories (category_title) values(:category_title)");
+
+            $insert_query->execute([
+                ':category_title' => $category_title
+            ]);
+
+            if ($insert_query) {
+                echo "<script>alert('Category has been added!')</script>";
+                echo "<script>window.location.href = '../index.php';</script>";
+            }
         }
     }
 }
@@ -35,3 +55,22 @@ if (isset($_POST['insert_cat'])) {
     </div>
 
 </form>
+
+
+<?php
+
+// try {
+//     $pdo = new PDO("mysql:host=localhost;dbname=your_db_name", "username", "password");
+//     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+//     $email = $_POST['email'];
+//     $stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email");
+//     $stmt->bindParam(':email', $email);
+//     $stmt->execute();
+//     if ($stmt->rowCount() > 0) {
+//         echo "Duplicate email address";
+//     } else {
+//         echo "Email address is available";
+//     }
+// } catch (PDOException $e) {
+// }
+?>
