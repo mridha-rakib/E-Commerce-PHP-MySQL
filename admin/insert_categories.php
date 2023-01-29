@@ -11,10 +11,6 @@ if (isset($_POST['insert_cat'])) {
 
         $category_title = $_POST['cat_title'];
 
-        // $email = $_POST['email'];
-        // $stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email");
-        // $stmt->bindParam(':email', $email);
-        // $stmt->execute();
 
         $select_query = $conn->prepare("SELECT * FROM categories WHERE category_title = :category_title ");
         $select_query->bindParam(':category_title', $category_title);
@@ -59,18 +55,5 @@ if (isset($_POST['insert_cat'])) {
 
 <?php
 
-// try {
-//     $pdo = new PDO("mysql:host=localhost;dbname=your_db_name", "username", "password");
-//     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-//     $email = $_POST['email'];
-//     $stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email");
-//     $stmt->bindParam(':email', $email);
-//     $stmt->execute();
-//     if ($stmt->rowCount() > 0) {
-//         echo "Duplicate email address";
-//     } else {
-//         echo "Email address is available";
-//     }
-// } catch (PDOException $e) {
-// }
+
 ?>
