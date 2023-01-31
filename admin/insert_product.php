@@ -29,7 +29,20 @@ if (isset($_POST['insert_product'])) {
     $product_image3 = $_POST['product_image3']['name'];
 
     //accessing images temporary name
+    $temp_image1 = $_POST['product_image1']['tmp_name'];
+    $temp_image2 = $_POST['product_image2']['tmp_name'];
+    $temp_image3 = $_POST['product_image3']['tmp_name'];
 
+
+    if ($product_title == '' or $description == '' or $product_keywords == '' or  $product_category == '' or $product_brands == '' or $product_price == '' or $product_image1 == '' or $product_image2 == '' or $product_image3) {
+        //echo '<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-triangle"></i> <a href="../index.php">Something went wrong.</a></div>';
+        echo "<script>alert('Please fill all the fields');</script>";
+        exit();
+    } else {
+        move_uploaded_file($temp_image1, "./products_images/$product_image1");
+        move_uploaded_file($temp_image2, "./products_images/$product_image2");
+        move_uploaded_file($temp_image3, "./products_images/$product_image3");
+    }
 }
 
 

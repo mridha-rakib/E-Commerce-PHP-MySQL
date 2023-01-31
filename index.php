@@ -95,7 +95,7 @@ $cats = $categories->fetchAll(PDO::FETCH_ASSOC);
 
     <!--Third child -->
     <div class="bg-light">
-        <h3 class="text-center">Hidden Store</h3>
+        <h3 class="text-center">E Store</h3>
         <p class="text-center">Communications is at the heart of E-commerce business</p>
     </div>
 
