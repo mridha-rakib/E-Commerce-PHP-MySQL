@@ -1,3 +1,4 @@
+<?php require '../includes/header.php'; ?>
 <?php require '../config/config.php'; ?>
 
 <?php
@@ -10,6 +11,9 @@ if (isset($_POST['insert_brand'])) {
     } else {
 
         $brand_title = $_POST['cat_title'];
+
+        // Temporarily add the code for the brand_title
+
 
 
         $select_query = $conn->prepare("SELECT * FROM brands WHERE brand_title = :brand_title ");
@@ -24,7 +28,7 @@ if (isset($_POST['insert_brand'])) {
         } else {
 
 
-            $insert_query = $conn->prepare("INSERT INTO categories (brand_title) values(:brand_title)");
+            $insert_query = $conn->prepare("INSERT INTO brands (brand_title) VALUES(:brand_title)");
 
             $insert_query->execute([
                 ':brand_title' => $brand_title
@@ -39,6 +43,7 @@ if (isset($_POST['insert_brand'])) {
 }
 ?>
 
+<h2 class="text-center">Insert Brands</h2>
 <form action="" method="post" class="mb-2">
     <div class="input-group w-90 mb-2">
         <span class="input-group-text bg-info" id="basic-addon1"><i class="fa-solid fa-receipt"></i></span>

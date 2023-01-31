@@ -14,7 +14,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- CSS file -->
-    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
     <!-- <style>
     .admin_image {
         width: 100px;
@@ -32,7 +32,7 @@
     <div class="container-fluid">
         <!-- First child -->
         <nav class="navbar navbar-expand-lg navbar-light bg-info">
-            <div class="container-fluid">
+            <div class="container-fluid ">
                 <img src="../images/admin.jpg" alt="" class="logo">
                 <nav class="navbar navbar-expand-lg">
                     <ul class="navbar-nav">
@@ -81,7 +81,7 @@
 
         <!-- Fourth child -->
 
-        <div class="container my-5">
+        <div class="container my-3">
             <?php
             if (isset($_GET['insert_category'])) {
                 include('insert_categories.php');
@@ -97,7 +97,7 @@
 
 
     <!-- Footer -->
-    <div class="bg-info p-3 text-center footer">
+    <div class="bg-info p-4 text-center footer">
         <p>All right reserves @ 2023</p>
     </div>
 

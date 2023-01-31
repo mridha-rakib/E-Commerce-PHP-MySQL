@@ -1,3 +1,25 @@
+<?php require 'includes/header.php'; ?>
+<?php require 'config/config.php'; ?>
+
+
+<?php
+
+$brands = $conn->query("SELECT * FROM brands");
+$brands->execute();
+
+
+$rows = $brands->fetchAll(PDO::FETCH_ASSOC);
+
+$categories = $conn->query("SELECT * FROM categories");
+$categories->execute();
+
+
+$cats = $categories->fetchAll(PDO::FETCH_ASSOC);
+
+
+?>
+
+
 <!doctype html>
 <html lang="en">
 
@@ -14,7 +36,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- CSS file -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
 
 </head>
 
@@ -170,24 +192,15 @@
                         <h4>Delivery Brands</h4>
                     </a>
                 </li>
+                <?php foreach ($rows as $row) : ?>
                 <li class="nav-item">
-                    <a href="" class="nav-link text-light">Brands1 </a>
+                    <a href="" class="nav-link text-light">
+                        <?php echo $row["brand_title"]; ?>
+                    </a>
                 </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link text-light">Brands2</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link text-light">Brands3</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link text-light">Brands4</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link text-light">Brands5</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link text-light">Brands6</a>
-                </li>
+
+                <?php endforeach  ?>
+
             </ul>
 
             <!-- Categories to be displayed -->
@@ -197,24 +210,11 @@
                         <h4>Categories</h4>
                     </a>
                 </li>
+                <?php foreach ($cats as $cat) : ?>
                 <li class="nav-item">
-                    <a href="" class="nav-link text-light">Category-1</a>
+                    <a href="" class="nav-link text-light"><?php echo $row["brand_title"]; ?></a>
                 </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link text-light">Category-1</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link text-light">Category-1</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link text-light">Category-1</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link text-light">Category-1</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link text-light">Category-1</a>
-                </li>
+                <?php endforeach  ?>
             </ul>
 
         </div>
