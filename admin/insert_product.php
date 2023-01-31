@@ -11,6 +11,28 @@ $brands->execute();
 $rows = $brands->fetchAll(PDO::FETCH_ASSOC);
 
 
+if (isset($_POST['insert_product'])) {
+    // if ($_POST['product_title'] == '' or $_POST['description'] == '' or $_POST['product_keywords'] == '' or $_POST['product_price'] == '') {
+    //     echo '<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-triangle"></i> <a href="../index.php">Something went wrong.</a></div>';
+    // }
+
+    $product_title = $_POST['product_title'];
+    $description = $_POST['description'];
+    $product_keywords = $_POST['product_keywords'];
+    $product_category = $_POST['product_category'];
+    $product_brands = $_POST['product_brands'];
+    $product_price = $_POST['product_price'];
+
+    //accessing images
+    $product_image1 = $_POST['product_image1']['name'];
+    $product_image2 = $_POST['product_image2']['name'];
+    $product_image3 = $_POST['product_image3']['name'];
+
+    //accessing images temporary name
+
+}
+
+
 ?>
 
 <!doctype html>
