@@ -6,14 +6,11 @@
 
 $brands = $conn->query("SELECT * FROM brands");
 $brands->execute();
-
-
 $rows = $brands->fetchAll(PDO::FETCH_ASSOC);
+
 
 $categories = $conn->query("SELECT * FROM categories");
 $categories->execute();
-
-
 $cats = $categories->fetchAll(PDO::FETCH_ASSOC);
 
 
@@ -194,8 +191,8 @@ $cats = $categories->fetchAll(PDO::FETCH_ASSOC);
                 </li>
                 <?php foreach ($rows as $row) : ?>
                 <li class="nav-item">
-                    <a href="" class="nav-link text-light">
-                        <?php echo $row["brand_title"]; ?>
+                    <a href="index.php?brand=<?php echo $row['brand_id']; ?>"
+                        class="nav-link text-light"><?php echo $row["brand_title"]; ?>
                     </a>
                 </li>
 
@@ -212,7 +209,9 @@ $cats = $categories->fetchAll(PDO::FETCH_ASSOC);
                 </li>
                 <?php foreach ($cats as $cat) : ?>
                 <li class="nav-item">
-                    <a href="" class="nav-link text-light"><?php echo $row["brand_title"]; ?></a>
+                    <a href="index.php?category=<?php echo $cat['category_id']; ?>"
+                        class="nav-link text-light"><?php echo $cat['category_title']; ?>
+                    </a>
                 </li>
                 <?php endforeach  ?>
             </ul>
