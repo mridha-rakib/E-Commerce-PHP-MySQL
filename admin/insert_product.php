@@ -1,3 +1,18 @@
+<?php require '../config/config.php'; ?>
+
+<?php
+
+$categories = $conn->query("SELECT * FROM categories");
+$categories->execute();
+$cats = $categories->fetchAll(PDO::FETCH_ASSOC);
+
+$brands = $conn->query("SELECT * FROM brands");
+$brands->execute();
+$rows = $brands->fetchAll(PDO::FETCH_ASSOC);
+
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -50,20 +65,26 @@
             </div>
 
             <!-- categories -->
+
             <div class="form-outline mb-4 w-50 m-auto">
                 <select name="product_categories" id="" class="form-select">
-                    <option value="">Select a category</option>
-                    <option value="">Fruits</option>
-                    <option value="">Vegetables</option>
+                    <option value="Select category" placeholder="Select category"></option>
+                    <?php foreach ($cats as $cat) : ?>
+                    <option value=""><?php echo $cat['category_title']; ?></option>
+                    <?php endforeach; ?>
                 </select>
             </div>
+
+
+            <!-- Button -->
 
             <!-- Brands -->
             <div class="form-outline mb-4 w-50 m-auto">
                 <select name="product_brands" id="" class="form-select">
-                    <option value="">Select a Brands</option>
-                    <option value="">Tesla</option>
-                    <option value="">and, so on..</option>
+                    <option value="" disabled>Select a Brands</option>
+                    <?php foreach ($rows as $row) : ?>
+                    <option value=""><?php echo $row["brand_title"]; ?></option>
+                    <?php endforeach  ?>
                 </select>
             </div>
 
