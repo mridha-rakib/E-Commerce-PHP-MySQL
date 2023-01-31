@@ -56,18 +56,52 @@
                     <option value="">Fruits</option>
                     <option value="">Vegetables</option>
                 </select>
-
             </div>
 
             <!-- Brands -->
             <div class="form-outline mb-4 w-50 m-auto">
                 <select name="product_brands" id="" class="form-select">
-                    <option value="">Select a category</option>
-                    <option value="">Fruits</option>
-                    <option value="">Vegetables</option>
+                    <option value="">Select a Brands</option>
+                    <option value="">Tesla</option>
+                    <option value="">and, so on..</option>
                 </select>
-
             </div>
+
+
+            <!-- Image 1 -->
+            <div class="form-outline mb-4 w-50 m-auto">
+                <label for="product_image1" class="form-label">Product image 1</label>
+                <input type="file" name="product_image1" id="product_image1" class="form-control" required="required">
+            </div>
+
+            <!-- Image 2 -->
+            <div class="form-outline mb-4 w-50 m-auto">
+                <label for="product_image2" class="form-label">Product image 2</label>
+                <input type="file" name="product_image2" id="product_image2" class="form-control" required="required">
+            </div>
+
+            <!-- Image 3 -->
+            <div class="form-outline mb-4 w-50 m-auto">
+                <label for="product_image3" class="form-label">Product image 2</label>
+                <input type="file" name="product_image3" id="product_image3" class="form-control" required="required">
+            </div>
+
+
+            <!-- Price -->
+            <div class="form-outline mb-4 w-50 m-auto">
+                <label for="product_price" class="form-label">Product price</label>
+                <input type="text" name="product_price" id="product_price" class="form-control" placeholder="price"
+                    required="required" autocomplete="off">
+            </div>
+
+            <!-- SUbmit -->
+            <div class="form-outline mb-4 w-50 m-auto">
+                <input type="submit" name="insert_product" class="btn btn-info mb-3 px-3" value="Insert Product">
+            </div>
+
+
+
+
 
         </form>
 
