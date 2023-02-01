@@ -48,24 +48,24 @@ if (isset($_POST['insert_product'])) {
         move_uploaded_file($temp_image2, "./products_images/$product_image2");
         move_uploaded_file($temp_image3, "./products_images/$product_image3");
 
-        $insert_product = $conn->prepare("INSERT INTO products 
-        (product_title, product_description, product_keywords, category_id, brand_id, 
-        product_image1, product_image2, product_image3, product_price, status) 
-        VALUES(:product_title, :description, :product_keywords,:product_category, 
-        :product_brands, :product_image1, :product_image2, :product_image3, 
+        $insert_product = $conn->prepare("INSERT INTO products
+        (product_title, description, product_keywords, category_id, brand_id,
+        product_image1, product_image2, product_image3, product_price, status)
+        VALUES(:product_title, :description, :product_keywords,:product_category,
+        :product_brands, :product_image1, :product_image2, :product_image3,
         :product_price, :product_status)");
-
+        //inserting data into database
         $insert_product->execute([
-            ':product_title' => $product_title,
-            ':product_description' => $description,
-            ':product_keywords' => $product_keywords,
-            ':category_id' => $product_category,
-            ':brand_id' => $product_brands,
-            ':product_image1' => $product_image1,
-            ':product_image2' => $product_image2,
-            ':product_image3' => $product_image3,
-            ':product_price' => $product_price,
-            ':status' => $product_status
+            'product_title' => $product_title,
+            'description' => $description,
+            'product_keywords' => $product_keywords,
+            'product_category' => $product_category,
+            'product_brands' => $product_brands,
+            'product_image1' => $product_image1,
+            'product_image2' => $product_image2,
+            'product_image3' => $product_image3,
+            'product_price' => $product_price,
+            'product_status' => $product_status
         ]);
 
 
