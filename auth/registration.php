@@ -26,37 +26,52 @@
         <div class="d-flex flex-column justify-content-center align-items-center">
             <div class="p-1 w-md-50 h-100 d-flex justify-content-center">
                 <div class="card p-2 p-md-5 m-md-5 shadow w-sm-50 ">
-                    <h1 class="card-title text-center text-custom-red">Registration Form</h1>
-                    <form>
-                        <div class="cul-mb-6 mb-2">
-                            <label for="username" class="form-label">Full Name</label>
-                            <input type="text" class="form-control" id="username" placeholder="Enter your full name">
+                    <h1 class="card-title text-center text-custom-red">E-commerce Website</h1>
+                    <h4 class="card-title text-center">Create New Account</h4>
+                    <form action="process-registration.php" method="POST">
+                        <div class="form-group py-2">
+                            <label for="InputName">Full Name</label>
+                            <input type="name" name="name" class="form-control" id="InputEmail" placeholder="Enter name"
+                                required>
                         </div>
-                        <div class="cul-mb-6 mb-2">
-                            <label for="phone" class="form-label">Contact Number</label>
-                            <input type="tel" name="phone" class="form-control" id="phone"
-                                placeholder="Enter your phone number">
-                            <!-- <input type="submit" class="btn" value="Verify" /> -->
+                        <div class="form-group py-2">
+                            <label for="InputPhone">Phone No.</label>
+                            <input type="tel" name="phone" class="form-control" id="InputPhone"
+                                placeholder="Enter phone number" required>
+                        </div>
+                        <div class="form-group py-2">
+                            <label for="InputEmail">Email address</label>
+                            <input type="email" name="email" class="form-control" id="InputEmail"
+                                placeholder="Enter email" required>
+                        </div>
+                        <div class="form-group py-2">
+                            <label for="InputPassword1">Create Password</label>
+                            <input type="password" name="password1" class="form-control" id="InputPassword1"
+                                placeholder="Create Password" required>
+                        </div>
+                        <div class="form-group py-2">
+                            <label for="InputPassword2">Retype Password</label>
+                            <input type="password" name="password2" class="form-control" id="InputPassword2"
+                                placeholder="Retype Password">
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary" id="btnSubmit" name="Submit">Submit</button>
                         </div>
 
-                        <div class="mb-3">
-                            <label for="useremail" class="form-label">Email address</label>
-                            <input type="email" name="email" class="form-control" id="useremail"
-                                placeholder="Enter your email">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
-                        </div>
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
+
+                    <!-- <div class="mt-2" id="message">
+                        <h3 class="fs-6">Password must contain the following:</h3>
+                        <ul class="list-group">
+                            <li id="letter" class="list-group-item fs-6 invalid">A <b>lowercase</b> letter</li>
+                            <li id="capital" class="list-group-item fs-6 invalid">A <b>capital (uppercase)</b> letter
+                            </li>
+                            <li id="number" class="list-group-item fs-6 invalid">A <b>number</b></li>
+                            <li id="length" class="list-group-item fs-6 invalid">Minimum <b>8 characters</b></li>
+                        </ul>
+                    </div> -->
                 </div>
             </div>
-        </div>
     </main>
 
 
