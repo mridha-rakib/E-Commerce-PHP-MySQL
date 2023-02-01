@@ -12,29 +12,6 @@ $rows = $brands->fetchAll(PDO::FETCH_ASSOC);
 
 
 if (isset($_POST['insert_product'])) {
-    // if ($_POST['product_title'] == '' or $_POST['description'] == '' or $_POST['product_keywords'] == '' or $_POST['product_price'] == '') {
-    //     echo '<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-triangle"></i> <a href="../index.php">Something went wrong.</a></div>';
-    // }
-
-    $product_title = $_POST['product_title'];
-    $description = $_POST['description'];
-    $product_keywords = $_POST['product_keywords'];
-    $product_category = $_POST['product_category'];
-    $product_brands = $_POST['product_brands'];
-    $product_price = $_POST['product_price'];
-    $product_status = true;
-
-    //accessing images
-    $product_image1 = $_FILES['product_image1']['name'];
-    $product_image2 = $_FILES['product_image2']['name'];
-    $product_image3 = $_FILES['product_image3']['name'];
-
-    //accessing images temporary name
-    $temp_image1 = $_FILES['product_image1']['tmp_name'];
-    $temp_image2 = $_FILES['product_image2']['tmp_name'];
-    $temp_image3 = $_FILES['product_image3']['tmp_name'];
-
-
     if (
         $product_title == '' or $description == '' or $product_keywords == '' or $product_category == ''
         or $product_brands == '' or $product_price == '' or $product_image1 == ''
@@ -44,6 +21,31 @@ if (isset($_POST['insert_product'])) {
         echo "<script>alert('Please fill all the fields');</script>";
         exit();
     } else {
+
+        $product_title = $_POST['product_title'];
+        $description = $_POST['description'];
+        $product_keywords = $_POST['product_keywords'];
+        $product_category = $_POST['product_category'];
+        $product_brands = $_POST['product_brands'];
+        $product_price = $_POST['product_price'];
+        $product_status = true;
+
+        //accessing images
+
+        $product_image1 = $_FILES['product_image1']['name'];
+        $product_image2 = $_FILES['product_image2']['name'];
+        $product_image3 = $_FILES['product_image3']['name'];
+
+        $dir = "products_images/" . basename($product_image1);
+        $dir = "products_images/" . basename($product_image2);
+        $dir = "products_images/" . basename($product_image3);
+
+        //accessing images temporary name
+        // $temp_image1 = $_FILES['product_image1']['tmp_name'];
+        // $temp_image2 = $_FILES['product_image2']['tmp_name'];
+        // $temp_image3 = $_FILES['product_image3']['tmp_name'];
+
+
         move_uploaded_file($temp_image1, "./products_images/$product_image1");
         move_uploaded_file($temp_image2, "./products_images/$product_image2");
         move_uploaded_file($temp_image3, "./products_images/$product_image3");
@@ -54,6 +56,7 @@ if (isset($_POST['insert_product'])) {
         VALUES(:product_title, :description, :product_keywords,:product_category,
         :product_brands, :product_image1, :product_image2, :product_image3,
         :product_price, :product_status)");
+
         //inserting data into database
         $insert_product->execute([
             'product_title' => $product_title,
@@ -135,7 +138,7 @@ if (isset($_POST['insert_product'])) {
 
             <div class="form-outline mb-4 w-50 m-auto">
                 <select name="product_category" id="" class="form-select">
-                    <option value="">Select Category</option>
+                    <option value="" disabled>Select Category</option>
                     <?php foreach ($cats as $cat) {
                         $category_id = $cat['category_id'];
                         $category_title = $cat['category_title'];

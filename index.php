@@ -13,6 +13,10 @@ $categories = $conn->query("SELECT * FROM categories");
 $categories->execute();
 $cats = $categories->fetchAll(PDO::FETCH_ASSOC);
 
+$products = $conn->query("SELECT * FROM products");
+$products->execute();
+$product = $products->fetchAll(PDO::FETCH_ASSOC);
+
 
 ?>
 
@@ -101,72 +105,17 @@ $cats = $categories->fetchAll(PDO::FETCH_ASSOC);
 
     <!-- fourth child -->
     <div class="row">
+
+        <!-- Fetching products -->
+
+        <?php ?>
+
         <div class="col col-md-10">
             <!-- products -->
             <div class="row">
                 <div class="col-md-4 mb-2">
                     <div class="card">
                         <img src="images/apple.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-info">Add to cart</a>
-                            <a href="#" class="btn btn-secondary">View more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-2">
-                    <div class="card">
-                        <img src="images/capsicum.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-info">Add to cart</a>
-                            <a href="#" class="btn btn-secondary">View more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-2">
-                    <div class="card">
-                        <img src="images/dairymilk.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-info">Add to cart</a>
-                            <a href="#" class="btn btn-secondary">View more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-2">
-                    <div class="card">
-                        <img src="images/dairymilk.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-info">Add to cart</a>
-                            <a href="#" class="btn btn-secondary">View more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-2">
-                    <div class="card">
-                        <img src="images/dairymilk.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-info">Add to cart</a>
-                            <a href="#" class="btn btn-secondary">View more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-2">
-                    <div class="card">
-                        <img src="images/dairymilk.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
