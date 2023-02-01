@@ -134,10 +134,10 @@ if (isset($_POST['insert_product'])) {
             <!-- categories -->
 
             <div class="form-outline mb-4 w-50 m-auto">
-                <select name="product_categories" id="" class="form-select">
-                    <option value="Select category" placeholder="Select category"></option>
+                <select name="product_category" id="" class="form-select">
+                    <option value="">Select Category</option>
                     <?php foreach ($cats as $cat) : ?>
-                    <option value=""><?php echo $cat['category_title']; ?></option>
+                    <option value="<?php echo $cat['category_id']; ?>"><?php echo $cat['category_title']; ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
@@ -150,7 +150,7 @@ if (isset($_POST['insert_product'])) {
                 <select name="product_brands" id="" class="form-select">
                     <option value="" disabled>Select a Brands</option>
                     <?php foreach ($rows as $row) : ?>
-                    <option value=""><?php echo $row["brand_title"]; ?></option>
+                    <option value="<?php echo $row['brand_id']; ?>"><?php echo $row["brand_title"]; ?></option>
                     <?php endforeach  ?>
                 </select>
             </div>
