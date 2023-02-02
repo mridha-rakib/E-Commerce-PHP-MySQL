@@ -105,26 +105,25 @@ $product = $products->fetchAll(PDO::FETCH_ASSOC);
 
     <!-- fourth child -->
     <div class="row">
-
-        <!-- Fetching products -->
-
-        <?php ?>
-
         <div class="col col-md-10">
             <!-- products -->
             <div class="row">
-                <div class="col-md-4 mb-2">
+                <!-- Fetching products -->
+                <?php foreach ($product as $pro) : ?>
+
+                <div class="col-md-4 d-flex align-items-stretch mb-2">
                     <div class="card">
-                        <img src="images/apple.jpg" class="card-img-top" alt="...">
+                        <img src="http://localhost/E-Commerce/admin/products_images/<?php echo $pro['product_image1']; ?>"
+                            alt="image">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
+                            <h5 class="card-title"><?php echo $pro["product_title"]; ?></h5>
+                            <p class="card-text"><?php echo $pro["description"]; ?></p>
                             <a href="#" class="btn btn-info">Add to cart</a>
                             <a href="#" class="btn btn-secondary">View more</a>
                         </div>
                     </div>
                 </div>
+                <?php endforeach; ?>
             </div>
         </div>
 
