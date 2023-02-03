@@ -30,7 +30,8 @@
   width: 100%;
   top: 0;
 }
-
-.card {
-  height: 200px;
+.card-img-top {
+  width: 100px;
+  height: 100px;
 }
+

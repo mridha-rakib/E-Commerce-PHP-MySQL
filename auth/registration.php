@@ -60,7 +60,7 @@
 
                     </form>
 
-                    <!-- <div class="mt-2" id="message">
+                    <div class="mt-2" id="message">
                         <h3 class="fs-6">Password must contain the following:</h3>
                         <ul class="list-group">
                             <li id="letter" class="list-group-item fs-6 invalid">A <b>lowercase</b> letter</li>
@@ -69,7 +69,7 @@
                             <li id="number" class="list-group-item fs-6 invalid">A <b>number</b></li>
                             <li id="length" class="list-group-item fs-6 invalid">Minimum <b>8 characters</b></li>
                         </ul>
-                    </div> -->
+                    </div>
                 </div>
             </div>
     </main>
