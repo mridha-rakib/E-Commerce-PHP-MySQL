@@ -74,15 +74,85 @@
             </div>
     </main>
 
-
-
-
-    <!-- <script>
-    const phoneInputField = document.querySelector("#phone");
-    const phoneInput = window.intlTelInput(phoneInputField, {
-        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    <script>
+    $(document).ready(function() {
+        $("#message").hide();
     });
-    </script> -->
+    $("#InputPassword1").focus(
+        function() {
+            $("#message").show();
+        }
+    );
+    $("#InputPassword1").keyup(
+        function() {
+
+            var pass = $("#InputPassword1").val();
+
+            // Validate lowercase letters
+            var lowerCaseLetters = /[a-z]/g;
+            if (lowerCaseLetters.test(pass) == true) {
+                $("#letter").removeClass("invalid");
+                $("#letter").addClass("valid");
+            } else {
+                $("#letter").removeClass("valid");
+                $("#letter").addClass("invalid");
+            }
+
+            // Validate uppercase letters
+            var upperCaseLetters = /[A-Z]/g;
+            if (upperCaseLetters.test(pass) == true) {
+                $("#capital").removeClass("invalid");
+                $("#capital").addClass("valid");
+            } else {
+                $("#capital").removeClass("valid");
+                $("#capital").addClass("invalid");
+            }
+
+            // Validate Numbers
+            var numbers = /[0-9]/g;
+            if (numbers.test(pass) == true) {
+                $("#number").removeClass("invalid");
+                $("#number").addClass("valid");
+            } else {
+                $("#number").removeClass("valid");
+                $("#number").addClass("invalid");
+            }
+
+            // Validate Length
+            if (pass.length > 8) {
+                $("#length").removeClass("invalid");
+                $("#length").addClass("valid");
+            } else {
+                $("#length").removeClass("valid");
+                $("#length").addClass("invalid");
+            }
+        }
+    );
+    $("#InputPassword1").blur(
+        function() {
+            $("#message").hide();
+        }
+    );
+
+    $("form").submit(function(e) {
+        e.preventDefault();
+        var password = $("#InputPassword1").val();
+        var confirmPassword = $("#InputPassword2").val();
+        if (password != confirmPassword) {
+            alert("Passwords do not match.");
+        } else {
+            e.currentTarget.submit();
+        }
+    });
+    </script>
+
+
+    <!-- < script>
+        // const phoneInputField = document.querySelector("#phone");
+        // const phoneInput = window.intlTelInput(phoneInputField, {
+        // utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+        // });
+        </script> -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
